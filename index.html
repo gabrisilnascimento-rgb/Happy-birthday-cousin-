@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160b2b">
+<title>Happy birthday, cousin! ✨</title>
+<style>
+:root{--night:#10071f;--purple:#281044;--violet:#8d54d8;--gold:#f5d58b;--cream:#fff5df;--muted:#d9c9e8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#3b1b5a 0%,var(--night) 55%);color:var(--cream);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.7}
+main{position:relative;z-index:1}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 22px;position:relative;overflow:hidden}
+.orbit{width:min(66vw,250px);aspect-ratio:1;border:1px solid #f5d58b80;border-radius:50%;display:grid;place-items:center;position:relative;box-shadow:0 0 45px #a56ce733,inset 0 0 30px #a56ce722;animation:float 5s ease-in-out infinite}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #d8b5ff55;border-radius:50%;inset:13px;transform:rotate(35deg) scaleX(1.28)}
+.orbit:after{transform:rotate(-35deg) scaleX(1.28);border-color:#f5d58b66}
+.gem{font-size:clamp(3.8rem,15vw,6rem);filter:drop-shadow(0 0 20px #f5d58b88);animation:pulse 3s infinite}
+.eyebrow{letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font:600 .72rem Arial,sans-serif;margin:32px 0 12px}
+h1{font-size:clamp(2.7rem,10vw,5.8rem);line-height:.98;font-weight:normal;margin:0;letter-spacing:-.045em;text-shadow:0 0 35px #b987ff55}
+h1 span{display:block;color:var(--gold);font-style:italic}
+.subtitle{font:1rem/1.7 Arial,sans-serif;color:var(--muted);max-width:520px;margin:22px auto 28px}
+button{border:1px solid #f5d58b99;background:linear-gradient(120deg,#f3d18a,#fff0c8,#d8b16b);color:#29143c;padding:15px 25px;border-radius:999px;font-weight:700;font-size:.92rem;cursor:pointer;box-shadow:0 0 30px #e6bd6d28;transition:transform .25s,box-shadow .25s}
+button:hover{transform:translateY(-3px);box-shadow:0 0 35px #e6bd6d55}
+.scroll{position:absolute;bottom:20px;color:#c7b1df;font: .7rem Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;animation:float 3s infinite}
+section{padding:82px 20px;max-width:1000px;margin:auto}
+.section-label{font: .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.28em;color:var(--gold);text-align:center}
+h2{font-size:clamp(2rem,7vw,3.5rem);font-weight:normal;text-align:center;margin:14px 0 20px}
+.intro{color:var(--muted);font:1rem/1.85 Arial,sans-serif;text-align:center;max-width:670px;margin:0 auto 34px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px}
+.photo{min-height:210px;border:1px solid #e9cb8c55;border-radius:18px;background:linear-gradient(145deg,#3a2052,#1a0c2b);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:15px;overflow:hidden;position:relative}
+.photo:before{content:"";position:absolute;inset:7px;border:1px dashed #e9cb8c55;border-radius:12px;pointer-events:none}
+.photo .icon{font-size:2.4rem;filter:drop-shadow(0 0 12px #e9cb8c66)}
+.photo strong{font-size:1.05rem;color:var(--gold);font-weight:normal;margin-top:14px}
+.photo small{font: .75rem/1.5 Arial,sans-serif;color:#cdbbdf;margin-top:8px}
+.message-card{max-width:760px;margin:34px auto 0;padding:clamp(24px,6vw,48px);border:1px solid #e9cb8c66;border-radius:24px;background:linear-gradient(135deg,#28163dce,#170d27e8);box-shadow:0 20px 80px #0003;position:relative}
+.message-card:before{content:"✦";position:absolute;top:-20px;left:calc(50% - 20px);font-size:2rem;color:var(--gold);background:var(--night);padding:0 12px}
+.message-card p{font:1.05rem/1.95 Arial,sans-serif;color:#f4eafc;margin:0 0 18px}
+.message-card .sign{color:var(--gold);font-family:Georgia,serif;font-style:italic;font-size:1.35rem;text-align:right;margin-top:28px}
+.final{text-align:center;padding-bottom:100px}
+.final .heart{font-size:3rem;display:inline-block;animation:pulse 2s infinite}
+footer{text-align:center;color:#a995bb;font: .75rem Arial,sans-serif;padding:20px}
+.hidden-message{display:none}
+.reveal{animation:reveal .9s both}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 12px #f5d58b66)}50%{transform:scale(1.07);filter:drop-shadow(0 0 24px #f5d58baa)}}
+@keyframes reveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.spark{position:fixed;top:-20px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@media(max-width:620px){.gallery{grid-template-columns:1fr}.photo{min-height:170px}.hero{min-height:95svh}section{padding:65px 18px}.eyebrow{letter-spacing:.22em}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<main>
+<header class="hero">
+<div class="orbit" aria-hidden="true"><div class="gem">✦</div></div>
+<p class="eyebrow">Uma surpresa feita com carinho</p>
+<h1>Happy birthday,<span>Jaciely!</span></h1>
+<p class="subtitle">Hoje o universo ganhou um motivo a mais para brilhar. E essa pequena surpresa é todinha sua. 💜</p>
+<button id="openBtn">Abrir minha surpresa ✨</button>
+<div class="scroll">Uma surpresa espera por você ↓</div>
+</header>
+<section id="surpresa">
+<p class="section-label">Memórias especiais</p>
+<h2>Momentos que merecem ficar</h2>
+<p class="intro">Toda história bonita é feita de momentos, risadas e pessoas que deixam tudo mais especial. Esta galeria está esperando pelas nossas fotos favoritas.</p>
+<div class="gallery">
+<div class="photo"><div class="icon">📸</div><strong>Nossa memória favorita</strong><small>Foto especial da Jaciely aqui</small></div>
+<div class="photo"><div class="icon">🌙</div><strong>Um momento inesquecível</strong><small>Mais uma foto para guardar</small></div>
+<div class="photo"><div class="icon">✨</div><strong>Mais histórias pela frente</strong><small>Uma lembrança para sorrir</small></div>
+</div>
+</section>
+<section id="mensagem">
+<p class="section-label">De coração</p>
+<h2>Uma mensagem pra você</h2>
+<div class="message-card">
+<p>Jaciely, feliz aniversário! 💜</p>
+<p>Que seu novo ciclo venha cheio de saúde, paz, oportunidades, conquistas e pessoas que torçam de verdade pela sua felicidade. Que nunca faltem motivos para sorrir, coragem para correr atrás dos seus sonhos e carinho nos dias em que tudo parecer complicado.</p>
+<p>Você merece viver momentos incríveis, colecionar lembranças lindas e continuar sendo essa pessoa especial. Que Deus ilumine seus caminhos e cuide de você em cada passo.</p>
+<p>E claro: desejo também muito juízo… mas não tanto, porque aí você perde metade das histórias engraçadas pra contar! 😂 Que venham muitas risadas, aventuras e aniversários para comemorar.</p>
+<p>Obrigado por fazer parte da família e da história. Aproveita muito o seu dia — hoje o bolo, os parabéns e a atenção são todos seus. Não vai querer dividir nem um pedacinho, hein? 🎂</p>
+<div class="sign">Com carinho,<br>Seu primo Gabriel Silva 💜</div>
+</div>
+</section>
+<section class="final">
+<div class="heart">💜</div>
+<h2>Seu dia. Seu brilho. Sua história.</h2>
+<p class="intro">Feliz aniversário, Jaciely! Que a vida te surpreenda com coisas tão bonitas quanto o bem que você merece.</p>
+<button id="againBtn">Soltar mais brilho ✨</button>
+</section>
+</main>
+<footer>Feito com carinho especialmente para Jaciely · Happy birthday, cousin!</footer>
+<script>
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');let stars=[];
+function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);stars=Array.from({length:Math.min(130,Math.floor(innerWidth/5))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.6+.3,a:Math.random()*.7+.15,p:Math.random()*6.28}))}
+function draw(t){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){ctx.globalAlpha=s.a*(.6+.4*Math.sin(t/900+s.p));ctx.fillStyle='#ffe8b0';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();requestAnimationFrame(draw);
+function sparkle(n=38){const symbols=['✦','✧','✷','✨','💜'];for(let i=0;i<n;i++){const e=document.createElement('span');e.className='spark';e.textContent=symbols[Math.floor(Math.random()*symbols.length)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(12+Math.random()*20)+'px';e.style.color=Math.random()>.45?'#f5d58b':'#d8b5ff';e.style.animationDuration=(2.5+Math.random()*3)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),6000)}}
+document.getElementById('openBtn').addEventListener('click',()=>{document.getElementById('surpresa').scrollIntoView({behavior:'smooth'});sparkle(55);document.querySelectorAll('.photo,.message-card').forEach((el,i)=>{el.style.animationDelay=(i*.12)+'s';el.classList.add('reveal')})});
+document.getElementById('againBtn').addEventListener('click',()=>sparkle(70));
+</script>
+</body>
+</html>
